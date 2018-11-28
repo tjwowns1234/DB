@@ -1,6 +1,2 @@
 #DB
-
-#root-context.xml 에서
-#<property name="username" value="root"></property>
-#<property name="password" value="rnfl12"></property>
-#맞게 변경
+루트컨텍스트에서 자신의 디비 아이디 
