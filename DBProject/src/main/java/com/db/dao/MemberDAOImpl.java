@@ -17,7 +17,7 @@ public class MemberDAOImpl implements MemberDAO {
 	@Inject
 	private SqlSession sqlSession;
 	
-	private static final String Namespace = "com.example.mapper.memberMapper";
+	private static final String Namespace = "com.db.mapper.memberMapper";
 	
 	@Override
 	public List<departmentsVO> deptList() throws Exception {
