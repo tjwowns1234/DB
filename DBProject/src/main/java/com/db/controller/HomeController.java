@@ -35,7 +35,13 @@ public class HomeController {
 		return mv;
 	}
 	//@ModelAttribute("departmentsVO") departmentsVO deptvo
-	
+	@RequestMapping(value = "/index", method = RequestMethod.POST)
+	public ModelAndView index(Locale local, ModelAndView mv) throws Exception {
+		logger.info(local +" index 진입");
+		mv.setViewName("index");
+		mv.addObject("check","index 컨트롤러에서 받아온 문자열입니다.");
+		return mv;
+	}
 	
 	
 }

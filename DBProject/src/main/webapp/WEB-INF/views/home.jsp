@@ -11,7 +11,9 @@
 	<c:forEach var="a" items="${DL}">
 		<p>${a.dept_no}, ${a.dept_name}</p>
 	</c:forEach>
-
+<form name="form1" method="POST" action="index">
+<input type="submit" value="클릭하면 index.jsp로 갑니다.">
+</form>
 
 </body>
 </html>
