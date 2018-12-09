@@ -90,6 +90,13 @@ public class HomeController {
 		mv.setViewName("doctor");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/clinic", method = RequestMethod.GET)
+	public ModelAndView clinic(Locale local, ModelAndView mv) throws Exception {
+		logger.info(local +"clinic.jsp");
+		mv.setViewName("clinic");
+		return mv;
+	}
 	/*
 	//@ModelAttribute("departmentsVO") departmentsVO deptvo
 	@RequestMapping(value = "/index", method = RequestMethod.POST)

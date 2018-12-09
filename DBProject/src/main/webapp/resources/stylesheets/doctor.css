@@ -95,7 +95,7 @@ body {
 }
 
 .doctor:hover {
-    content: url('./doctor_hover.png');
+    content: url(./'doctor_hover.png');
 }
 
 .Hospitalization:hover {
