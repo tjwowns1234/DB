@@ -14,8 +14,27 @@
 		
 		이렇게 해야 한다.
 	-->
+	<!--  
 	<select id="deptList" resultType="departmentsVO">
 		SELECT * FROM departments
 	</select>
 	
+	<select id="hwselect" resultType="real_estateVO">
+		SELECT * FROM REPrice;
+	</select>
+	
+	<insert id="hwinsert" parameterType="real_estate_categoryVO">
+		INSERT INTO InsCategory(TYPE_ID,TYPE_NAME) VALUES(#{TYPE_ID},#{TYPE_NAME})
+	</insert>
+	
+	<select id="hwinsselect" resultType="real_estate_categoryVO">
+		SELECT * FROM InsCategory;
+	</select>
+	-->
+	<select id="login1" resultType="loginVO">
+		SELECT d_id, d_password from doctor where d_id=${d_id} and d_password=${d_password}
+	</select>
+	<select id="login2" resultType="loginVO">
+		SELECT n_id, n_password from nurse where n_id=${d_id} and n_password=${d_password}
+	</select>
 </mapper>

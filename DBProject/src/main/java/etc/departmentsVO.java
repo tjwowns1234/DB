@@ -1,4 +1,4 @@
-package com.db.dto;
+package etc;
 
 public class departmentsVO {
 

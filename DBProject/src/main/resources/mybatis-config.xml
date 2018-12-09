@@ -5,8 +5,14 @@
 	<configuration>
 	
 		<typeAliases>
+		<!--  
 			<typeAlias type="com.db.dto.departmentsVO" alias="departmentsVO"/>
+			<typeAlias type="com.db.dto.real_estateVO" alias="real_estateVO"/>
+			<typeAlias type="com.db.dto.real_estate_categoryVO" alias="real_estate_categoryVO"/>
+		-->
+		<typeAlias type="com.db.dto.loginVO" alias="loginVO"/>
 		</typeAliases>
+			
 		
 	</configuration>
 	
