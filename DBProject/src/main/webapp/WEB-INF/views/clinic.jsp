@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="resources/stylesheets/doctor.css" rel="stylesheet">
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -32,7 +31,7 @@
 <body>
   <div id="wrapper" class="animate">
     <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">LOGO</a>
+      <a class="navbar-brand" href="http://localhost:8080/main">병원 전산 시스템</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,13 +40,13 @@
         <ul class="navbar-nav animate side-nav">
             
           <li class="nav-item">
-            <a class="nav-link" href="#" title="Registor"> <img class="register" src="http://localhost:8080/resources/stylesheets/desk.png" style="width: 38;"><span class="ttip"> Register</span></a>
+            <a class="nav-link" href="/register" title="Registor"> <img class="register" src="http://localhost:8080/resources/stylesheets/desk.png" style="width: 38px;"><span class="ttip"> Register</span></a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#" title="Doctor"><img class="doctor" src="http://localhost:8080/resources/stylesheets/doctor.png" style="width: 42;"> <span class="ttip"> Doctor</span></a>
+            <a class="nav-link" href="/doctor" title="Doctor"><img class="doctor" src="http://localhost:8080/resources/stylesheets/doctor.png" style="width: 42px;"> <span class="ttip"> Doctor</span></a>
             </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" title="Hospitalization"> <img class="hospitalization" src="http://localhost:8080/resources/stylesheets/admission.png" style="width: 38;"><span class="ttip"> Hospitalization</span></a>
+            <a class="nav-link" href="/hospitalization" title="Hospitalization"> <img class="hospitalization" src="http://localhost:8080/resources/stylesheets/admission.png" style="width: 38px;"><span class="ttip"> Hospitalization</span></a>
           </li>
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
@@ -63,7 +62,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">진료
-                    <input type="submit" value="저장" style="position:absolute; right:20;"></h5> 
+                    <input type="submit" value="저장" style="position:relative; float:right; right:20;"></h5> 
                    <p class="card-text" style="padding-top: 10px;">
                     <table class="table">
                         <tbody>
@@ -116,7 +115,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">약 검색/목록
-                <input type="submit" value="저장" style="position:absolute; right:20;"></h5>
+                <input type="submit" value="저장" style="position:relative; float:right; right:20;"></h5>
             <input type="text">
             <input type="submit" value="검색">
               <p class="card-text" style="padding-top: 10px;">

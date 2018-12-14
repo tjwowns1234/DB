@@ -41,13 +41,13 @@
         <ul class="navbar-nav animate side-nav">
             
           <li class="nav-item">
-            <a class="nav-link" href="#" title="Registor"> <img class="register" src="http://localhost:8080/resources/stylesheets/desk.png" style="width: 38;"><span class="ttip"> Register</span></a>
+            <a class="nav-link" href="/register" title="Registor"> <img class="register" src="http://localhost:8080/resources/stylesheets/desk.png" style="width: 38px;"><span class="ttip"> Register</span></a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="/doctor" title="Doctor"><img class="doctor" src="http://localhost:8080/resources/stylesheets/doctor.png" style="width: 42;"> <span class="ttip"> Doctor</span></a>
+            <a class="nav-link" href="/doctor" title="Doctor"><img class="doctor" src="http://localhost:8080/resources/stylesheets/doctor.png" style="width: 42px;"> <span class="ttip"> Doctor</span></a>
             </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" title="Hospitalization"> <img class="hospitalization" src="http://localhost:8080/resources/stylesheets/admission.png" style="width: 38;"><span class="ttip"> Hospitalization</span></a>
+            <a class="nav-link" href="/hospitalization" title="Hospitalization"> <img class="hospitalization" src="http://localhost:8080/resources/stylesheets/admission.png" style="width: 38px;"><span class="ttip"> Hospitalization</span></a>
           </li>
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">

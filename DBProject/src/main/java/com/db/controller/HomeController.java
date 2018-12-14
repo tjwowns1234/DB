@@ -97,6 +97,35 @@ public class HomeController {
 		mv.setViewName("clinic");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public ModelAndView register(Locale local, ModelAndView mv) throws Exception {
+		logger.info(local +"register.jsp");
+		mv.setViewName("register");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/hospitalization", method = RequestMethod.GET)
+	public ModelAndView hospitalization(Locale local, ModelAndView mv) throws Exception {
+		logger.info(local +"hospitalization.jsp");
+		mv.setViewName("hospitalization");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/inpatient_info", method = RequestMethod.GET)
+	public ModelAndView inpatient_info(Locale local, ModelAndView mv) throws Exception {
+		logger.info(local +"inpatient_info.jsp");
+		mv.setViewName("inpatient_info");
+		return mv;
+	}
+	
+	@RequestMapping(value = "/regview", method = RequestMethod.GET)
+	public ModelAndView regview(Locale local, ModelAndView mv) throws Exception {
+		logger.info(local +"regview.jsp");
+		mv.setViewName("regview");
+		return mv;
+	}
+	
 	/*
 	//@ModelAttribute("departmentsVO") departmentsVO deptvo
 	@RequestMapping(value = "/index", method = RequestMethod.POST)
