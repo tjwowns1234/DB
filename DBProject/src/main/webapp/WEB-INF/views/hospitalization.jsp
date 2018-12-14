@@ -4,7 +4,7 @@
 <html>
     <head>
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" id="bootstrap-css">
-<link href="resources/stylesheets/main_doctor.css" rel="stylesheet">
+<link href="resources/stylesheets/main_doctor2.css" rel="stylesheet">
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
@@ -84,15 +84,20 @@
                         <tbody>
                           <tr>
                             <td>진료실</td>
-                            <td class="inpatient">강예지</td>
+                              
+                            <td class="inpatient">
+                                <nav class="cl-effect-7"><a href="#">강예지</a></nav></td>
+                              
                           </tr>
                           <tr>
                             <td>대기 인원</td>
-                            <td class="inpatient">홍길동</td>
+                             <td class="inpatient">
+                                <nav class="cl-effect-7"><a href="#">홍길동</a></nav></td>
                           </tr>
                           <tr>
                             <td></td>
-                            <td class="inpatient">이름</td>
+                             <td class="inpatient">
+                                <nav class="cl-effect-7"><a href="#">이름</a></nav></td>
                           </tr>
                         </tbody>
                     </table>
