@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link href="resources/stylesheets/main_doctor.css" rel="stylesheet">
+<link href="resources/stylesheets/register.css" rel="stylesheet">
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
@@ -55,7 +55,7 @@
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-key"></i> Logout</a>
+            <a class="nav-link" href="/logout"><i class="fas fa-key"></i> Logout</a>
           </li>
         </ul>
       </div>

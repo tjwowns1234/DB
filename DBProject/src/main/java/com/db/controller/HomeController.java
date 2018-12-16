@@ -47,6 +47,15 @@ public class HomeController {
 		mv.setViewName("login");
 		return mv;
 	}
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView logout(Locale local, ModelAndView mv
+			,HttpServletRequest request) throws Exception {
+		logger.info(local +"logout.jsp");
+		HttpSession session = request.getSession();
+		session.invalidate();
+		mv.setViewName("login");
+		return mv;
+	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView dlogin(Locale local, ModelAndView mv
@@ -169,6 +178,9 @@ public class HomeController {
 	@RequestMapping(value = "/doctor", method = RequestMethod.GET)
 	public ModelAndView doctor(Locale local, ModelAndView mv) throws Exception {
 		logger.info(local +"doctor.jsp");
+		
+		
+		
 		mv.setViewName("doctor");
 		return mv;
 	}
