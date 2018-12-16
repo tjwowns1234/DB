@@ -37,4 +37,115 @@
 	<select id="login2" resultType="loginVO">
 		SELECT n_id, n_password from nurse where n_id=${d_id} and n_password=${d_password}
 	</select>
+	<select id="dselect" resultType="doctorVO">
+		SELECT d_name, d_office_number, (select count(r_id) from register_info) as regcount,
+		(select count(d_id) from clinic_info where d_id=${d_id}) as count
+		 from doctor where d_id=${d_id}
+	</select>
+	<select id="dYes" resultType="birthVO">
+	<![CDATA[
+		select d_name from doctor where 
+		MONTH(d_birth_of_date) = MONTH(NOW()) 
+		AND DAY(d_birth_of_date) = DAY(date_add(now(), interval -1 day))
+		]]>
+	</select>
+	
+	<select id="dToday" resultType="birthVO">
+	<![CDATA[
+		select d_name from doctor where 
+		MONTH(d_birth_of_date) = MONTH(NOW()) 
+		AND DAY(d_birth_of_date) = DAY(now())
+		]]>
+	</select>
+	
+	<select id="dTomor" resultType="birthVO">
+	<![CDATA[
+		select d_name from doctor where 
+		MONTH(d_birth_of_date) = MONTH(NOW()) 
+		AND DAY(d_birth_of_date) = DAY(date_add(now(), interval +1 day))
+		]]>
+	</select>
+	
+	<select id="dinfo" resultType="doctorVO">
+		select d_id, d_name, d_office_number, d_major from doctor
+	</select>
+	<select id="t1" resultType="String" parameterType="patientVO">
+		select p_id from patient where p_rrn=#{p_rrn}
+	</select>
+	<select id="t2" resultType="String" parameterType="patientVO">
+		select d_office_number from doctor where d_id=#{d_id}
+	</select>
+	<select id="t3" resultType="String" parameterType="patientVO">
+		select r_id from register_info where p_id=#{p_id}
+	</select>
+	
+	<insert id="reginsert" parameterType="patientVO">
+		INSERT INTO patient(p_name,p_gender,p_rrn,p_phone_number) VALUES(#{p_name},#{p_gender},#{p_rrn},#{p_phone_number})
+	</insert>
+	<insert id="reginsert2" parameterType="patientVO">
+		INSERT INTO register_info(p_id, d_office_number) VALUES(#{p_id},#{d_office_number})
+	</insert>
+	<insert id="reginsert3" parameterType="patientVO">
+		INSERT INTO clinic_info(c_details, p_id, r_id, d_id) VALUES(#{c_details},#{p_id},#{r_id},#{d_id})
+	</insert>
+	
+	<select id="rlist" resultType="register_infoVO">
+		select r_id, r_time, p_name, d_office_number 
+		from register_info join patient
+		where register_info.p_id = patient.p_id
+	</select>
+	
+	<insert id ="a" parameterType="mediVO">
+		insert into medicine values(#{m_id},#{m_name},#{m_inurance_code})
+	</insert>
+	<select id="c1" resultType="string">
+		select doctor.d_office_number from register_info join doctor
+		where register_info.d_office_number = doctor.d_office_number
+		and d_id=#{d_id} limit 1;
+	</select>
+	<select id="getclinicinfo" resultType="clinicVO">
+		select p_name, patient.p_id, d_name, r_time, clinic_info.c_details, register_info.r_id
+		from register_info join patient join doctor join clinic_info
+		where register_info.p_id = patient.p_id 
+		and register_info.d_office_number=doctor.d_office_number
+		and register_info.d_office_number=#{d_office_number}
+		and clinic_info.p_id = register_info.p_id
+		order by register_info.r_id asc
+		limit 1;
+	</select>
+	<update id="clinic1" parameterType="clinic1VO">
+		update clinic_info 
+		set c_d_details = #{c_d_details}, c_opinion= #{c_opinion}
+		where r_id = #{r_id}
+	</update>
+	<select id="dsearch" resultType="diseVO">
+		select di_id, di_name from disease_info where di_name like CONCAT('%',#{key},'%')
+	</select>
+	<update id="dinsert" parameterType="diseVO">
+		update clinic_info 
+		set di_id = #{di_id}
+		where r_id = #{r_id}
+	</update>
+	<select id="medisearch" resultType="mediVO">
+		select m_id, m_name, m_inurance_code from medicine 
+		where m_name like CONCAT('%',#{key},'%')
+	</select>
+	
+	<insert id ="inpr" parameterType="mediVO">
+		insert into prescription(p_id, d_id) values(
+		(select p_id from clinic_info where r_id=#{r_id}),(select d_id from clinic_info where r_id=#{r_id}))
+	</insert>
+	
+	<insert id ="inprescription" parameterType="mediVO">
+		insert into prescription_medi values(
+			(select prescription_number from prescription where p_id = (select p_id  from clinic_info where r_id = #{r_id})),#{m_id})
+	</insert>
+	
+	<update id="a1" parameterType="mediVO">
+		update clinic_info set r_id=null where r_id=#{r_id}
+	</update>
+	<update id="a2" parameterType="mediVO">
+		delete from register_info where r_id=#{r_id}
+	</update>
+
 </mapper>

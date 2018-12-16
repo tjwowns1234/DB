@@ -12,13 +12,14 @@
 	String type = (String)session.getAttribute("type");
 	if(type.equals("1")) { // 의사일 경우
 		%>
-		<%@include file="main_doctor.jsp"%>
+		<jsp:forward page="main_doctor.jsp"></jsp:forward>
 <%	}
+	
 %>
 <%
 	if(type.equals("2")) { // 간호사일 경우
 	%>
-	<%@include file="main_nurse.jsp"%>
+	<jsp:forward page="main_nurse.jsp"></jsp:forward>
 <%	}
 %>
 </body>

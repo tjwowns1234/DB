@@ -59,99 +59,45 @@
     </nav>
 
     <div class="container-fluid">
-        <div class="row">
-        <div class="col">
-        <form name="f1" action="clinic1" method="POST">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">진료
-                    <input type="submit" class="btn btn-default btn-sm" value="저장하고 질병 정의 하러가기" style="position:relative; float:right; right:20;"></h5> 
-                   <p class="card-text" style="padding-top: 10px;">
-                    <table class="table">
-                        <tbody>
-                          <tr>
-                            <th>환자 이름</th>
-                            <td><c:out value="${p_name}"></c:out></td>
-                          </tr>
-                          <tr>
-                            <th>의사 이름</th>
-                            <td><c:out value="${d_name}"></c:out></td>
-                          </tr>
-                          <tr>
-                            <th>진료 날짜</th>
-                            <td><c:out value="${r_time}"></c:out> / <c:out value="${r_id}"></c:out></td>
-                          </tr>
-                          <tr>
-                            <th>환자 상태</th>
-                            <td><c:out value="${c_details}"></c:out></td>
-                          </tr>
-                          <tr>
-                            <th>진료 내용</th>
-                            <td>
-                            <div class="form-group">
-                                <textarea name="c_d_details" cols="50" rows="10" class="form-control"></textarea>
-                            </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th>의사 소견</th>
-                            <td>
-                            <div class="form-group">
-                                <textarea name="c_opinion" cols="10" rows="5" class="form-control"></textarea>
-                            </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                    </table>
-            </div>
-          </div>
-          <input type="hidden" name="r_id" value="${r_id}" checked>
-          </form>
-        </div>
-
-        <!--  
         <div class="col">
         <iframe id="msearch" name="msearch" src="http://localhost:8080/msearch" style="display: none;"></iframe>
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">약 검색/목록
-                <input type="submit" value="저장" style="position:relative; float:right; right:20;"></h5>
-                
-            <form action="msearch" method="POST" name="f1">
-            <input type="text" name="key">
-            <input type="submit" value="검색">
+              <h5 class="card-title">약품 검색/목록</h5>
+            <form action="medisearch" method="POST" name="f1">
+            	<input type="text" name="key">
+            	<input type="hidden" name="r_id" value="${r_id}" checked>
+            	<input type="submit" value="검색" class="btn btn-default btn-sm">
             </form>
+            <form name="f2" method="POST" action="clinic3">
+            <input type="submit" class="btn btn-default btn-sm" value="진료 마치기" style="position:relative; float:right; right:20;">
               <p class="card-text" style="padding-top: 10px;">
                     <table class="table">
                         <tbody>
                           <tr>
-                            <th>약 코드</th>
-                            <th>약 이름</th>
-                            <th>약 성분</th>
+                            <th>약품 코드</th>
+                            <th>약품 이름</th>
+                            <th>약품 보험코드</th>
                             <th>추가</th>
                           </tr>
-                          
-                          <tr id="mlist">
-                            <td>2934</td>
-                            <td>타이레놀</td>
-                            <td>...</td>
-                            <td><input type="checkbox"></td>
-                          </tr>
+                          <c:forEach var="a" items="${list}">
                           <tr>
-                            <td>2934</td>
-                            <td>타이레놀</td>
-                            <td>...</td>
-                            <td><input type="checkbox"></td>
+                            <td>${a.m_id }</td>
+                            <td>${a.m_name }</td>
+                            <td>${a.m_inurance_code }</td>
+                            <td><input type="checkbox" value="${a.m_id }" name="m_id"></td>
                           </tr>
+                          </c:forEach>
                         </tbody>
+                        
                     </table>
+                    <input type="hidden" name="r_id" value="${r_id}" checked>
+             </form>
             </div>
           </div>
         </div>
-        -->
       </div>
    </div>
-  </div>
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>

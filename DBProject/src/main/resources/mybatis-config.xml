@@ -11,6 +11,15 @@
 			<typeAlias type="com.db.dto.real_estate_categoryVO" alias="real_estate_categoryVO"/>
 		-->
 		<typeAlias type="com.db.dto.loginVO" alias="loginVO"/>
+		<typeAlias type="com.db.dto.doctorVO" alias="doctorVO"/>
+		<typeAlias type="com.db.dto.birthVO" alias="birthVO"/>
+		<typeAlias type="com.db.dto.patientVO" alias="patientVO"/>
+		<typeAlias type="com.db.dto.register_infoVO" alias="register_infoVO"/>
+		<typeAlias type="com.db.dto.mediVO" alias="mediVO"/>
+		<typeAlias type="com.db.dto.clinicVO" alias="clinicVO"/>
+		<typeAlias type="com.db.dto.clinic1VO" alias="clinic1VO"/>
+		<typeAlias type="com.db.dto.diseVO" alias="diseVO"/>
+		
 		</typeAliases>
 			
 		

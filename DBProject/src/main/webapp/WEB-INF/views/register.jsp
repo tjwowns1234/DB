@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,21 +18,22 @@
     e.preventDefault();
   });
 });
-        $(document).ready(function() {
-        $('#regview').click(function() {
-            var inpatient = $(this);
-            var tr = inpatient.parent();
-            var td = tr.children();
-            var name = td.eq(1).text();
+
+//         $(document).ready(function() {
+//         $('#regview').click(function() {
+//             var inpatient = $(this);
+//             var tr = inpatient.parent();
+//             var td = tr.children();
+//             var name = td.eq(1).text();
             
-            $("regview.html").html(name)
-            var width = 700;
-            var height = 700;
-            var left = Math.ceil((window.screen.width-width)/2);
-            var top = Math.ceil((window.screen.height-height)/2);
-            window.open('http://localhost:8080/regview','진료 목록',"top="+top+",left="+left+",width="+width+",height="+height+",scrollbars=no");
-        }); 
-     });
+//             $("regview.html").html(name)
+//             var width = 700;
+//             var height = 700;
+//             var left = Math.ceil((window.screen.width-width)/2);
+//             var top = Math.ceil((window.screen.height-height)/2);
+//             window.open('http://localhost:8080/regview','진료 목록',"top="+top+",left="+left+",width="+width+",height="+height+",scrollbars=no");
+//         }); 
+//      });
 </script>
 <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -70,6 +72,9 @@
       <div class="row">
         <div class="col">
           <div class="card">
+          
+           <form action="reginsert" method="POST" name="f1">
+           
             <div class="card-body">
               <h5 class="card-title">접수 등록
                     <input class="btn btn-default btn-sm" type="submit" value="저장" style="position: absolute; right: 20px;">
@@ -80,55 +85,55 @@
                           <tr>
                             <td>성명</td>
                             <td>
-                                <input type="text" class="form-control form-control-sm" id="patient_name">                                  
+                                <input type="text" class="form-control form-control-sm" id="patient_name" name="p_name">                                  
                               </td>
                           </tr>
                           <tr>
                             <td>주민번호</td>
                             <td>
-                                <div class="form-inline">
-                                <input type="text" class="form-control form-control-sm" id="patient_rrn1">&nbsp;-&nbsp;<input type="text" class="form-control form-control-sm" id="patient_rrn2">
-                                </div>
+                                <input type="text" class="form-control form-control-sm" id="patient_name" name="p_rrn">
                             </td>
                           </tr>
                             <tr>
                                 <td>성별</td>
                                 <td>
                                     <div class="gender_checkbox">
-                                        <label class="checkbox-inline"><input type="checkbox" name="p_gender_m"> M</label>
-                                        <label class="checkbox-inline"><input type="checkbox" name="p_pender_w"> W</label>
+                                        <label class="checkbox-inline" style="margin-left:25%;"><input type="radio" name="p_gender" value="M" checked> M</label>
+                                        <label class="checkbox-inline" style="margin-right:25%;"><input type="radio" name="p_gender" value="W"> W</label>
                                     </div>
                                 </td>
                             </tr>
                           <tr>
                             <td>휴대폰 번호</td>
                             <td>
-                                <input type="text" class="form-control form-control-sm" id="patient_phonenum">  
+                                <input type="text" class="form-control form-control-sm" id="patient_phonenum" name="p_phone_number">  
                             </td>
                           </tr>
                             <tr>
                             <td>환자 상태</td>
                             <td>
-                                <input type="text" class="form-control form-control-sm" id="patient_details">  
+                                <input type="text" class="form-control form-control-sm" id="patient_details" name="c_details">  
                             </td>
                           </tr>
                             <tr>
                             <td>담당 의사</td>
                             <td>
-                                <select class="form-control form-control-sm" id="roomnum">
-                                    <option id="doctor_select">서재준/내과/101호</option>
-                                    <option id="doctor_select">이수형/외과/102호</option>
-                                    <option id="doctor_select">홍길동/소아청소년과/103호</option>
-                                    <option id="doctor_select">박범준/신경외과/404호</option>
-                                </select>  
+                                <select class="form-control form-control-sm" id="roomnum" name="d_id">
+                                	<option id="doctor_select">=======담당 진료 의사를 선택 하세요======</option>
+                                	<c:forEach var="a" items="${dvo}" >
+                                    <option id="doctor_select" value="${a.d_id}">${a.d_name} / ${a.d_office_number} / ${a.d_major}</option>
+                                   	</c:forEach>
+                                </select>
                             </td>
                           </tr>
                         </tbody>
                     </table>
-                </p>
-            </div>
-          </div>
+                    
+            	</div>
+            	</form>
+          	</div>
         </div>
+
         <div class="col" id="regview">
           <div class="card">
             <div class="card-body">
@@ -144,26 +149,36 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <c:forEach var="a" items="${rlist}">
                           <tr>
-                            <td>일</td>
-                            <td>생일인 사람 이름</td>
-                            <td>일</td>
-                            <td>생일인 사람 이름</td>
+                            <td>${a.r_id }</td>
+                            <td>${a.r_time }</td>
+                            <td>${a.p_name }</td>
+                            <td>${a.d_office_number }</td>
                           </tr>
-                          <tr>
-                            <td>일</td>
-                            <td>Jacob</td>
-                            <td>일</td>
-                            <td>생일인 사람 </td>
-                          </tr>
-                          <tr>
-                            <td>일</td>
-                            <td>Larry</td>
-                            <td>일</td>
-                            <td>생일인 사람 이름</td>
-                          </tr>
+                          </c:forEach>
                         </tbody>
                     </table>
+                    <!--  
+                    <div class="col" id="regview">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">접수 현황</h5>
+              <p class="card-text" style="padding-top: 10px;">
+                  <iframe id="register_table" name="register_table" src="http://localhost:8080/register_table" style="display: none;"></iframe>
+                  <table class="table">
+                      <thead>
+                        <tr>
+                            <th>접수번호</th>
+                            <th>접수시간</th>
+                            <th>성명</th>
+                            <th>진료실</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tim">
+                    </tbody>
+                    </table>
+                    -->
                 </p>
             </div>
           </div>

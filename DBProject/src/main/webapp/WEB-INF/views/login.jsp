@@ -20,8 +20,7 @@
             <form name="form1" method="POST" action="login">
                 <input type="number" placeholder="아이디" name="d_id">
                 <input type="password" placeholder="비밀번호" name="d_password">
-                <input type="radio" name="type" value="1" checked>의사
-                <input type="radio" name="type" value="2">간호사
+                <input type="hidden" name="type" value="1" checked>
                 <input type="submit" class="btn btn-default full-width" value="로그인">
                 </form>
             </div>
