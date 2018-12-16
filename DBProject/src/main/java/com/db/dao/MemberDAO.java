@@ -11,6 +11,7 @@ import com.db.dto.loginVO;
 import com.db.dto.mediVO;
 import com.db.dto.dsearchVO;
 import com.db.dto.patientVO;
+import com.db.dto.presVO;
 import com.db.dto.register_infoVO;
 
 import etc.REPriceVO;
@@ -40,4 +41,6 @@ public interface MemberDAO {
 	public int dinsert(diseVO mvo) throws Exception;
 	public List<mediVO> medisearch(dsearchVO mvo) throws Exception;
 	public int inprescription(List<mediVO> mvo,mediVO m1) throws Exception;
+	public List<register_infoVO> doclist(String a) throws Exception;
+	public List<presVO> plist(String b) throws Exception;
 }

@@ -28,6 +28,7 @@ import com.db.dto.loginVO;
 import com.db.dto.mediVO;
 import com.db.dto.dsearchVO;
 import com.db.dto.patientVO;
+import com.db.dto.presVO;
 import com.db.dto.register_infoVO;
 import com.db.service.MemberService;
 
@@ -176,11 +177,24 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/doctor", method = RequestMethod.GET)
-	public ModelAndView doctor(Locale local, ModelAndView mv) throws Exception {
+	public ModelAndView doctor(Locale local, ModelAndView mv,
+			HttpServletRequest request) throws Exception {
 		logger.info(local +"doctor.jsp");
 		
+		HttpSession session = request.getSession();
+		String a = (String) session.getAttribute("d_office_number");
+		String b = (String) session.getAttribute("id");
+		System.out.println(a);System.out.println("d_id : "+b);
+		List<doctorVO> dvo = service.getDoctorList();
+		mv.addObject("dvo",dvo);
+
+		List<register_infoVO> rlist = service.doclist(a);
+		mv.addObject("list",rlist);
 		
-		
+		List<presVO> plist1 = service.plist(b);
+		System.out.println(plist1);
+		System.out.println(plist1.size());
+		mv.addObject("plist",plist1);
 		mv.setViewName("doctor");
 		return mv;
 	}
@@ -189,13 +203,19 @@ public class HomeController {
 	public ModelAndView clinic(Locale local, ModelAndView mv
 			,HttpServletRequest request) throws Exception {
 		logger.info(local +"clinic.jsp");
+		System.out.println(1);
 		clinicVO cvo = new clinicVO();
+		System.out.println(2);
 		HttpSession session = request.getSession();
+		System.out.println(3);
 		cvo.setD_id((String)session.getAttribute("id"));
+		System.out.println(4);
 		cvo = service.getclinicinfo(cvo);
-		
-		System.out.println(cvo.getC_details());
-
+		System.out.println(5);
+		if(cvo == null) mv.setViewName("doctor");
+		else
+		{
+			System.out.println(6);
 		mv.addObject("p_name",cvo.getP_name());
 		mv.addObject("p_id",cvo.getP_id());
 		mv.addObject("d_name",cvo.getD_name());
@@ -205,6 +225,7 @@ public class HomeController {
 		
 		
 		mv.setViewName("clinic");
+		}
 		return mv;
 	}
 	

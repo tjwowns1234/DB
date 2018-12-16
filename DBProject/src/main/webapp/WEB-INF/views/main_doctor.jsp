@@ -35,7 +35,7 @@
 
   <div id="wrapper" class="animate">
     <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="http://localhost:8080/main">병원 전산 시스템</a>
+      <a class="navbar-brand" href="http://localhost:8080/main">SW병원</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -49,9 +49,6 @@
             <li class="nav-item">
             <a class="nav-link" href="/doctor" title="Doctor"><img class="doctor" src="http://localhost:8080/resources/stylesheets/doctor.png" style="width: 42px;"> <span class="ttip"> Doctor</span></a>
             </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/hospitalization" title="Hospitalization"> <img class="hospitalization" src="http://localhost:8080/resources/stylesheets/admission.png" style="width: 38px;"><span class="ttip"> Hospitalization</span></a>
-          </li>
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
           <li class="nav-item">
@@ -127,13 +124,16 @@
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">올해의 질병 Bar 차트</h5>
+              <h5 class="card-title">올해의 질병</h5>
                 <!-- 막대 차트 삽입 -->
-                <div id="chart" style="margin: auto 0"></div>
+                <div id="chart"></div>
                    <script>
                       var chart = c3.generate({
                           size: {
                               width: 500
+                          },
+                          color : {
+                        	 pattern:['#F78181'] 
                           },
                       bindto: '#chart',
                       data: {

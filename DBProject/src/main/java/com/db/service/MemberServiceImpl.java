@@ -16,6 +16,7 @@ import com.db.dto.loginVO;
 import com.db.dto.mediVO;
 import com.db.dto.dsearchVO;
 import com.db.dto.patientVO;
+import com.db.dto.presVO;
 import com.db.dto.register_infoVO;
 
 import etc.REPriceVO;
@@ -115,5 +116,15 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int inprescription(List<mediVO> mvo,mediVO m1) throws Exception {
 		return dao.inprescription(mvo,m1);
+	}
+
+	@Override
+	public List<register_infoVO> doclist(String a) throws Exception{
+		return dao.doclist(a);
+	}
+
+	@Override
+	public List<presVO> plist(String b) throws Exception {
+		return dao.plist(b);
 	}
 }

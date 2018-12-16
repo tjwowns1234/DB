@@ -19,6 +19,7 @@
 		<typeAlias type="com.db.dto.clinicVO" alias="clinicVO"/>
 		<typeAlias type="com.db.dto.clinic1VO" alias="clinic1VO"/>
 		<typeAlias type="com.db.dto.diseVO" alias="diseVO"/>
+		<typeAlias type="com.db.dto.presVO" alias="presVO"/>
 		
 		</typeAliases>
 			

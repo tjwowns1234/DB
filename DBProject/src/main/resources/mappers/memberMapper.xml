@@ -90,9 +90,28 @@
 	</insert>
 	
 	<select id="rlist" resultType="register_infoVO">
+<!-- 		select r_id, r_time, p_name, d_office_number  -->
+<!-- 		from register_info join patient -->
+<!-- 		where register_info.p_id = patient.p_id -->
+<!-- 복잡하게 사용하였던 join 쿼리를 생성한 view를 통하여 실제로 사용 -->
+			select * from RegOfPatient_List
+	</select>
+	
+	<select id="rlist2" resultType="register_infoVO">
 		select r_id, r_time, p_name, d_office_number 
 		from register_info join patient
 		where register_info.p_id = patient.p_id
+		and register_info.d_office_number=#{a}
+	</select>
+	
+	<select id="plist" resultType="presVO">
+		select patient.p_name as p_name, medicine.m_name as m_name from prescription_medi join prescription join patient join medicine
+		 where prescription.prescription_number = prescription_medi.prescription_number
+		 and patient.p_id = prescription.p_id
+		 and medicine.m_id = prescription_medi.m_id
+		 and prescription.d_id=#{b}
+		 group by p_name
+		 order by prescription.prescription_number desc
 	</select>
 	
 	<insert id ="a" parameterType="mediVO">

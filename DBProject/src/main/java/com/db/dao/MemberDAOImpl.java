@@ -23,6 +23,7 @@ import com.db.dto.loginVO;
 import com.db.dto.mediVO;
 import com.db.dto.dsearchVO;
 import com.db.dto.patientVO;
+import com.db.dto.presVO;
 import com.db.dto.register_infoVO;
 
 import etc.REPriceVO;
@@ -203,13 +204,19 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public clinicVO getclinicinfo(clinicVO cvo) throws Exception {
-		System.out.println(cvo.getD_id());
+		System.out.println("4-1");
 		String a = sqlSession.selectOne(Namespace + ".c1",cvo);
+		System.out.println("4-2");
 		System.out.println(a);
+		System.out.println("4-3");
 		cvo.setD_office_number(a);
+		System.out.println("4-4");
 		List<clinicVO> b = new ArrayList<clinicVO>();
+		System.out.println("4-5");
 		b = sqlSession.selectList(Namespace + ".getclinicinfo",cvo);
-		return b.get(0);
+		System.out.println("4-6");
+		if ( b.isEmpty() || b == null) return null;
+		else return b.get(0);
 	}
 
 	@Override
@@ -248,4 +255,17 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.delete(Namespace + ".a2",m1);
 		return 1;
 	}
+
+	@Override
+	public List<register_infoVO> doclist(String a) throws Exception{
+		return sqlSession.selectList(Namespace + ".rlist2",a);
+	}
+
+	@Override
+	public List<presVO> plist(String b) throws Exception {
+		return sqlSession.selectList(Namespace + ".plist",b);
+	}
+	
+	
+	
 }

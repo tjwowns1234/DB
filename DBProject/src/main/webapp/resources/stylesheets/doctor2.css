@@ -2,6 +2,7 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+
 body {
     background: #f3f3f3;
 }
@@ -111,4 +112,81 @@ body {
 
 .form-control {
     resize: none;
+}
+
+
+
+
+.submit h3 {
+   color: #fff;
+   font-size: 3rem;
+   letter-spacing: 5px;
+}
+
+.button {
+   position: relative;
+   width: 100%;
+   background: #ceddef;
+   border-radius: 8px;
+   text-align: center;
+   margin: 0 auto 2% auto;
+   cursor: pointer;
+   overflow: hidden;
+   box-shadow: 5px 3px 5px rgba(0,0,0,.2);
+   -webkit-transition: all 0.3s ease;
+   -moz-transition: all 0.3s ease;
+   transition: all 0.3s ease;
+}
+
+.submit,
+.arrow {
+   display: inline-block;
+   -webkit-transition: all 0.2s ease;
+   -moz-transition: all 0.2s ease;
+   transition: all 0.2s ease;
+}
+
+.submit {
+     text-align: center;
+   margin: 1.5% 0 3% 0;
+}
+
+.arrow {
+   position: relative;
+   top: -3px;
+   opacity: 0;
+}
+
+.line {
+   height: 7px;
+   width: 24px;
+   border-radius: 10px;
+   background: #fff;
+}
+
+.top {
+   -webkit-transform: rotate(45deg);
+   -moz-transform: rotate(45deg);
+   transform: rotate(45deg);
+}
+
+.bottom {
+   -webkit-transform: rotate(-45deg);
+   -moz-transform: rotate(-45deg);
+   transform: rotate(-45deg);
+   margin-top: 5px;
+}
+
+.button.hover .submit {
+   -webkit-transform: translateX(-90px);
+   -moz-transform: translateX(-90px);
+   transform: translateX(-90px);
+   opacity: 0;   
+}
+
+.button.hover .arrow {
+   -webkit-transform: translateX(-200px);
+   -moz-transform: translateX(-200px);
+   transform: translateX(-200px);
+   opacity: 1;
 }

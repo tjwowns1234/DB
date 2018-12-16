@@ -8,13 +8,14 @@
     <link href="resources/stylesheets/login.css " type="text/css" rel="stylesheet" id="login-css">
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 </head>
 <title>Login</title>
 <body>
     <div class="jumbotron">
         <div class="container">
-            <span class="glyphicon glyphicon-list-alt"></span>
-            <h2>소프트웨어학과 병원 전산 시스템</h2>
+            <img src="http://localhost:8080/resources/stylesheets/hospital.png" style="width: 100px; padding-top: 40px;">
+            <h2>SW병원</h2>
             
             <div class="box">
             <form name="form1" method="POST" action="login">
