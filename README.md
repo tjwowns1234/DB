@@ -1,4 +1,7 @@
 #DB
+
+Server : Tomcat 7.0v
+
 루트컨텍스트에서 자신의 MYSQL 아이디 비밀번호 변경하세요.
 
 		<property name="username" value="아이디"></property>
