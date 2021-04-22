@@ -131,7 +131,7 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<!-- 3.4.1 버전쓰면 sqlsession 이게 임포트가안됨 업데이트되서 문제생긴듯 -->
-			<version>3.4.6</version>
+			<version>3.5.6</version>
 		</dependency>
 
 
